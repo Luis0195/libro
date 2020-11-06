@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int numeroVecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = totalPaginasLibro;
         numeroReferencia = "";
+        numeroVecesPrestado = 0;
     }
     
     /**
@@ -74,10 +76,10 @@ public class Libro {
     public String getDetallesLibro() {
         String detalles;
         if (numeroReferencia == "") {
-            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ";
+            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ Veces prestado, " + numeroVecesPrestado;
         }
         else {
-            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia;
+            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia + "Veces prestado, " + numeroVecesPrestado;
         }
         return detalles;
     }
@@ -101,10 +103,17 @@ public class Libro {
      */
     public void imprimirDetalles() {
         if (numeroReferencia == "") {
-            System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ");
+            System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ, Veces prestado, " + numeroVecesPrestado);
         }
         else {
-            System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia);
+            System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia + "Veces prestado, " + numeroVecesPrestado);
         }
+    }
+    
+    /**
+     * Prestar libro
+     */
+    public void vecesPrestado () {
+        numeroVecesPrestado += 1;
     }
 }
