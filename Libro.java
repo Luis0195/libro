@@ -15,17 +15,26 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int numeroVecesPrestado;
+    private boolean esLibroDeTexto;
+    private String esDeTextoCastellano;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int totalPaginasLibro)
+    public Libro(String autorLibro, String tituloLibro, int totalPaginasLibro, boolean esDeTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = totalPaginasLibro;
         numeroReferencia = "";
         numeroVecesPrestado = 0;
+        esLibroDeTexto = esDeTexto;
+        if (esLibroDeTexto == true) {
+            esDeTextoCastellano = "Si";
+        }
+        else {
+            esDeTextoCastellano = "No";
+        }
     }
     
     /**
@@ -48,6 +57,12 @@ public class Libro {
         return autor;
     }
     
+    /**
+     * Es libro de texto?
+     */
+    public String gettipoLibro() {
+        return esDeTextoCastellano + " es un libro de texto.";
+    }
     /**
      * Devuelve el título del libro
      */
@@ -76,10 +91,10 @@ public class Libro {
     public String getDetallesLibro() {
         String detalles;
         if (numeroReferencia == "") {
-            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ Veces prestado, " + numeroVecesPrestado;
+            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ Veces prestado, " + numeroVecesPrestado + ", Es un libro de texto?: " + esDeTextoCastellano;
         }
         else {
-            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia + "Veces prestado, " + numeroVecesPrestado;
+            detalles = "Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia + ", Veces prestado, " + numeroVecesPrestado + ", Es un libro de texto?: " + esDeTextoCastellano;
         }
         return detalles;
     }
@@ -103,10 +118,10 @@ public class Libro {
      */
     public void imprimirDetalles() {
         if (numeroReferencia == "") {
-            System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ, Veces prestado, " + numeroVecesPrestado);
+           System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: ZZZ, Veces prestado, " + numeroVecesPrestado + ", Es un libro de texto?: " + esDeTextoCastellano);
         }
         else {
-            System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia + "Veces prestado, " + numeroVecesPrestado);
+           System.out.println("Título: " + titulo +", Autor: " + autor +", Páginas: " + numeroPaginas + ", Num Referencia: " + numeroReferencia + "Veces prestado, " + numeroVecesPrestado + ", Es un libro de texto?: " + esDeTextoCastellano);
         }
     }
     
